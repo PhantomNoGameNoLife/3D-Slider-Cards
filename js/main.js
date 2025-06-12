@@ -33,12 +33,11 @@ function handleMove(clientX) {
 
 function handleEnd() {
     if (!isDragging && Date.now() - touchStartTime < TAP_THRESHOLD) {
-        // إذا كان نقرًا (tap)، قم بتفعيل تأثير hover
         const touchedCard = document.elementFromPoint(touchStartX, window.innerHeight / 2)?.closest('.card');
         if (touchedCard) {
             cards.forEach(card => card.classList.remove('active'));
             touchedCard.classList.add('active');
-            setTimeout(() => touchedCard.classList.remove('active'), 1000); // إزالة التأثير بعد ثانية
+            setTimeout(() => touchedCard.classList.remove('active'), 3000);
         }
     }
     isDragging = false;
